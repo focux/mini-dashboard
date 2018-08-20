@@ -1,0 +1,49 @@
+import React from 'react';
+import { Grid } from '@material-ui/core';
+import Home from '@material-ui/icons/Home';
+import Book from '@material-ui/icons/Book';
+import Build from '@material-ui/icons/Build';
+import Clear from '@material-ui/icons/Clear';
+import { Container, CustomNavLink, ListItem, List } from './elements';
+import MenuItem from './MenuItem';
+
+const menuLinks = [
+  {
+    name: 'Home',
+    path: '/',
+    icon: <Home />
+  },
+  {
+    name: 'Reservas',
+    path: '/booking',
+    icon: <Book />
+  },
+  {
+    name: 'Configuracion',
+    path: '/settings',
+    icon: <Build />
+  },
+  {
+    name: 'Cerrar Sesión',
+    path: '/',
+    icon: <Clear />
+  }
+];
+
+const SideMenu = () => (
+  <Container>
+    <List>
+    {
+      menuLinks.map((v, k) => 
+      <MenuItem
+        path={v.path}
+        icon={v.icon}
+        name={v.name}
+        key={k}
+      />)
+    }
+    </List>
+  </Container>
+);
+
+export default SideMenu;

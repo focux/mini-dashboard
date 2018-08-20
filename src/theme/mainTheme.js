@@ -1,7 +1,7 @@
 import { lighten } from 'polished';
 
 export default {
-  primaryColor: '',
+  primaryColor: '#e84118',
   secondaryColor: '',
   tertiaryColor: '',
   white: '#f5f6fa',
@@ -28,8 +28,8 @@ export default {
   },
   gap: {
     referenceVal: 0.5,
-    tiny: '0.5rem',
-    small: '1.5rem',
+    tiny: '5px',
+    small: '15px',
     medium: '2rem',
     big: '3rem',
     huge: '5rem'
