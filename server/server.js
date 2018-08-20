@@ -17,8 +17,8 @@ const cookieSession = require('cookie-session');
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
     keys: ['secret']
-  }));
-  
+}));
+
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(passport.initialize());

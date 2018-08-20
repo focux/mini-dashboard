@@ -4,12 +4,12 @@ import Home from '../pages/Home';
 import Booking from '../pages/Booking';
 import Settings from '../pages/Settings';
 
-const InnerRoute = () => (
-    <div>
+const InnerRoute = ({ setLoading, loading }) => (
+    <div style={{height: '100%'}}>
       <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/booking" component={Booking} />
-        <Route path="/settings" component={Settings} />
+        <Route path="/" render={(props) => <Home {...props} setLoading={setLoading} loading={loading} />} exact />
+        <Route path="/booking" render={(props) => <Booking {...props} setLoading={setLoading} loading={loading} />} />
+        <Route path="/settings" render={(props) => <Settings {...props} setLoading={setLoading} loading={loading} />} />
       </Switch>
     </div>
 

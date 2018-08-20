@@ -11,7 +11,8 @@ client.interceptors.response.use((response) => {
     status: response.status
   }
 }, (error) => {
-  if (error.response.status === 403) return window.location.replace('/logout');
+  console.log(error.response.status)
+  // if (error.response.status === 403) return window.location.replace('/logout');
   return {
     status: error.response.status,
     ...error.response.data

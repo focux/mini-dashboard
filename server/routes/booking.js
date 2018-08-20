@@ -3,10 +3,11 @@ const { Booking } = require('../models/booking');
 
 router.post('/', async (req, res) => {
   const error = 'Hubo un problema al hacer la reserva, favor intente nuevamente.';
-  const { fullName, telephone, email } = req.body;
-  if (req.body && telephone && email) {
+  if (req.body && req.body.telephone && req.body.email && req.body.bookingDate) {
+    const { fullName, telephone, email, bookingDate } = req.body;
+    console.log(req.body.bookingDate, 'el body');
     const newBooking = new Booking({
-      fullName, telephone, email
+      fullName, telephone, email, bookingDate
     });
     try {
       const booking = await newBooking.save();
@@ -15,11 +16,13 @@ router.post('/', async (req, res) => {
       return res.status(400).send({ error });
     }
   }
+  return res.status(400).send({ error });
 });
 
 router.get('/', async (req, res) => {
-  const { _id } = req.user;
-  if (req.user && _id) {
+  console.log(req.user, 'hey');
+  if (req.user && req.user._id) {
+    const { _id } = req.user;
     try {
       const bookings = await Booking.find({});
       return res.status(200).send({ bookings });

@@ -12,6 +12,7 @@ export const Container = styled.nav`
 export const Main = styled.main`
   background-color: ${props => props.theme.white};
   height: 100%;
+  position: relative;
 `;
 
 export const BoxContainer = styled.div`
