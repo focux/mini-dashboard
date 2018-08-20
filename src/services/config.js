@@ -10,9 +10,12 @@ client.interceptors.response.use((response) => {
     ...response.data,
     status: response.status
   }
-}, (error) => ({
-  status: error.response.status,
-  ...error.response.data
-}));
+}, (error) => {
+  if (error.response.status === 403) return window.location.replace('/logout');
+  return {
+    status: error.response.status,
+    ...error.response.data
+  }
+});
 
 export default client;

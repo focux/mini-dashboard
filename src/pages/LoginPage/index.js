@@ -39,7 +39,7 @@ export default class LoginPage extends Component {
         this.setState({
           loading: false,
           error: ''
-        })
+        }, () => this.props.history.push('/'))
       }
       console.log(response);
     })

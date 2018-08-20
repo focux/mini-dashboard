@@ -25,7 +25,7 @@ const menuLinks = [
   },
   {
     name: 'Cerrar Sesión',
-    path: '/',
+    path: '/logout',
     icon: <Clear />
   }
 ];
