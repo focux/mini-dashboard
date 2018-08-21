@@ -1,12 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet'
 import { Grid } from '@material-ui/core';
+import withWidth from '@material-ui/core/withWidth';
 import { Container, RightSide, LeftSide, BoxContainer, Title, StyledProgressBar, ErrorMessage } from './elements';
 import LoginForm from './LoginForm';
 import Auth from '../../services/auth';
 
 
-export default class LoginPage extends Component {
+class LoginPage extends Component {
   state = {
     inputValues: {},
     loading: false,
@@ -47,14 +48,15 @@ export default class LoginPage extends Component {
 
   render () {
     const { loading } = this.state;
+    const { width } = this.props;
     return (
       <Fragment>
       <Helmet>
         <title>Applebees | Admin Authentication</title>
       </Helmet>
       <Container> 
-        <BoxContainer item container justify="center" spacing={0} xs={7}>
-          <Grid item xs={5}>
+        <BoxContainer item container justify="center" style={width === 'xs' ? {height: '100%'} : {}} spacing={0} xs={12} sm={10} md={7}>
+          <Grid item xs={12} sm={6} md={5} style={width === 'xs' ? {order: 1} : {}}>
             <RightSide>
             {loading && <StyledProgressBar color="secondary" />}
             <Grid container direction="column">
@@ -70,7 +72,7 @@ export default class LoginPage extends Component {
             </Grid>
             </RightSide>
           </Grid>
-          <Grid item xs={7}>
+          <Grid item xs={12} sm={6} md={7} >
             <LeftSide />
           </Grid>
         </BoxContainer>
@@ -79,3 +81,5 @@ export default class LoginPage extends Component {
     )
   }
 }
+
+export default withWidth()(LoginPage);
