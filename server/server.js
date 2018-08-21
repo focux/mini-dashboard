@@ -27,9 +27,11 @@ app.get('*.js', (req, res, next) => {
     res.set('Content-Type', 'text/css');
     next();
   });
+
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
-    keys: ['secret']
+    keys: ['secret'],
+    secure: process.env.NODE_ENV === 'production'
 }));
 
 app.use(helmet());
