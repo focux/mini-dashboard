@@ -13,7 +13,7 @@ const  axiosClient  = axios.create({
   }
 }, (error) => {
   console.log(error.response.status)
-  // if (error.response.status === 403) return window.location.replace('/logout');
+  if (error.response.status === 403) return window.location.replace('/logout');
   return {
     status: error.response.status,
     ...error.response.data
