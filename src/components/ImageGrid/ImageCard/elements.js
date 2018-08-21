@@ -8,7 +8,7 @@ export const CardOverlay = styled.div`
   left: 0;
   background-color: rgba(0,0,0,.7);
   z-index: 99;
-  opacity: 0;
+  opacity: ${props => props.isUploading ? 1 : 0};
   transition: opacity .3s ease-out;
   display: flex;
   justify-content: center;

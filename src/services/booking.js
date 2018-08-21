@@ -1,4 +1,4 @@
-import axiosClient from './config';
+import { axiosClient } from './config';
 
 export default class Booking {
   static async fetch() {

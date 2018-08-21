@@ -1,11 +1,12 @@
 import axios from 'axios';
+import firebase from 'firebase';
 import constants from '../config/constants';
 
-const client = axios.create({
+const  axiosClient  = axios.create({
   baseURL: constants.apiUrl
 })
 
-client.interceptors.response.use((response) => {
+ axiosClient.interceptors.response.use((response) => {
   return {
     ...response.data,
     status: response.status
@@ -19,4 +20,16 @@ client.interceptors.response.use((response) => {
   }
 });
 
-export default client;
+/* Esta información no es sensible, por lo tanto puede mostrarse abiertamente */
+const config = {
+  apiKey: "AIzaSyAYanmVWQekhZMnzqaOJK8oPmM2yKx0NAE",
+  authDomain: "applebees-5f865.firebaseapp.com",
+  databaseURL: "https://applebees-5f865.firebaseio.com",
+  projectId: "applebees-5f865",
+  storageBucket: "gs://applebees-5f865.appspot.com",
+  messagingSenderId: "527420108312"
+};
+
+firebase.initializeApp(config);;
+
+export { axiosClient, firebase };
