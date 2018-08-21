@@ -14,7 +14,19 @@ const publicPath = path.join(__dirname, '..', 'public');
 const cors = require('cors');
 const cookieSession = require('cookie-session');
 
-
+app.get('*.js', (req, res, next) => {
+    req.url += '.gz';
+    res.set('Content-Encoding', 'gzip');
+    res.set('Content-Type', 'text/javascript');
+    next();
+  });
+  
+  app.get('*.css', (req, res, next) => {
+    req.url += '.gz';
+    res.set('Content-Encoding', 'gzip');
+    res.set('Content-Type', 'text/css');
+    next();
+  });
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
     keys: ['secret']
@@ -25,6 +37,8 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors());
+
+
 
 app.use(express.static(publicPath));
 

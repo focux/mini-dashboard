@@ -17,7 +17,7 @@ export const RightSide = styled.div`
 `;
 
 export const LeftSide = styled.div`
-  background-image: linear-gradient(to bottom, rgba(233, 30, 99, .6), rgba(52, 31, 151, .4)), url(http://applebees-env.ashjer9we3.us-east-2.elasticbeanstalk.com/assets/image/slider/slide2.png);
+  background-image: linear-gradient(to bottom, rgba(233, 30, 99, .6), rgba(52, 31, 151, .4)), url(https://firebasestorage.googleapis.com/v0/b/applebees-5f865.appspot.com/o/images%2Fslider-2?alt=media&token=fe92f295-3930-4d02-9b65-57016d677fd1);
   padding: ${props => props.theme.gap.medium};
   background-position: center;
   background-size: cover;
