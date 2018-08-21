@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Hidden } from '@material-ui/core';
 import { CustomNavLink, ListItem } from './elements';
 
 const MenuItem = ({ icon, name, path }) => (
@@ -7,7 +7,7 @@ const MenuItem = ({ icon, name, path }) => (
   <CustomNavLink exact to={path}>
     <Grid container justify="space-between">
       <Grid item>{icon}</Grid>
-      <Grid item>{name}</Grid>
+      <Hidden smDown><Grid item>{name}</Grid></Hidden>
     </Grid>
   </CustomNavLink>
   </ListItem>
