@@ -13,6 +13,7 @@ export const CardOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   &:hover {
     opacity: 1;
   }
@@ -39,3 +40,8 @@ export const CardImage = styled.div`
   background-size: cover;
   background-position: center;
 `;
+
+export const CardOverlayText = styled.div`
+  color: ${props => props.theme.white};
+  font-size: 13px;
+`
