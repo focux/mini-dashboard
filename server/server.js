@@ -14,6 +14,11 @@ const publicPath = path.join(__dirname, '..', 'public');
 const cors = require('cors');
 const cookieSession = require('cookie-session');
 
+if (process.env.NODE_ENV === 'production') {
+    console.log('EN PRODUCTION');
+    app.set('trust proxy', 1);
+}
+
 app.get('*.js', (req, res, next) => {
     req.url += '.gz';
     res.set('Content-Encoding', 'gzip');
