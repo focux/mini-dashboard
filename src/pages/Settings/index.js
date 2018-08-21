@@ -6,23 +6,6 @@ import Images from '../../services/images';
 import { Grid } from '@material-ui/core';
 import ImageGrid from '../../components/ImageGrid';
 
-/* ENDPOINTS */
-
-/* 
-GET /images -> Get all images
-GET /images/:section -> Get all images for :section
-POST /images -> Upload new image
-
-Image model
-
-{
-  _id: ObjectID,
-  name: String,
-  url: String,
-  section: inicio | menu | promociones | reservaciones
-}
-*/
-
 export default class Settings extends Component {
   state = {
     value: 0,
@@ -86,11 +69,7 @@ export default class Settings extends Component {
 
   updateImagesUrl = (url) => this.setState((prevState) => {
       const newArray = prevState.images.map((v) => {
-        console.log(v);
-        console.log(prevState.clickedImgId)
         if (v._id === prevState.clickedImgId) {
-          console.log('ENCONTRADA')
-          console.log(url)
           return {
             ...v,
             url
