@@ -7,6 +7,7 @@ const passportSetup = require('./config/passport-setup');
 const passport = require('passport');
 const authRoutes = require('./routes/auth');
 const bookingRoutes = require('./routes/booking');
+const imageRoutes = require('./routes/image');
 const PORT = process.env.PORT || 3000;
 const app = express();
 const publicPath = path.join(__dirname, '..', 'public');
@@ -31,6 +32,7 @@ app.use(express.static(publicPath));
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/booking', bookingRoutes);
+app.use('/api/v1/image', imageRoutes);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(publicPath, 'index.html'));
