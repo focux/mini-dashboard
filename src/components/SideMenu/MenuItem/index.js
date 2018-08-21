@@ -4,7 +4,7 @@ import { CustomNavLink, ListItem } from './elements';
 
 const MenuItem = ({ icon, name, path }) => (
   <ListItem>
-  <CustomNavLink to={path}>
+  <CustomNavLink exact to={path}>
     <Grid container justify="space-between">
       <Grid item>{icon}</Grid>
       <Grid item>{name}</Grid>
