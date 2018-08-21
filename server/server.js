@@ -13,11 +13,13 @@ const app = express();
 const publicPath = path.join(__dirname, '..', 'public');
 const cors = require('cors');
 const cookieSession = require('cookie-session');
+const enforce = require('express-sslify');
 
 if (process.env.NODE_ENV === 'production') {
     console.log('EN PRODUCTION');
     app.set('trust proxy', 1);
-}
+    app.use(enforce.HTTPS({ trustProtoHeader: true }));
+  }
 
 app.get('*.js', (req, res, next) => {
     req.url += '.gz';
