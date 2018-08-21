@@ -17,7 +17,7 @@ const BookingListItem = ({ fullName, telephone, bookingDate, email, id }) => (
          <SmallTitle>Fecha de reserva:</SmallTitle>
       </Grid>
       <Grid item xs={12}>
-        <span style={{textTransform: 'capitalize'}}>{moment(bookingDate).locale('es').format('MMM DD YYYY')}</span>
+        <span style={{textTransform: 'capitalize'}}>{moment(bookingDate*1000).locale('es').format('MMM DD YYYY')}</span>
       </Grid>
     </Grid>
   </Container>
