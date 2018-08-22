@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
   if (req.user && req.user._id) {
     const { _id } = req.user;
     try {
-      const bookings = await Booking.find({});
+      const bookings = await Booking.find({}).sort({ '_id': -1 });
       return res.status(200).send({ bookings });
     } catch (e) {
       return res.status(400).send({
