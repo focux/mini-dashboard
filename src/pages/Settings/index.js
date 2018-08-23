@@ -5,6 +5,7 @@ import { Container, Content } from './elements';
 import Images from '../../services/images';
 import { Grid } from '@material-ui/core';
 import ImageGrid from '../../components/ImageGrid';
+import CustomTabBar from '../../components/CustomTabBar';
 
 export default class Settings extends Component {
   state = {
@@ -89,21 +90,11 @@ export default class Settings extends Component {
     };
     return (
   <Container>
-    <Tabs
-      value={value}
+    <CustomTabBar
+      tabs={sections}
       onChange={this.handleChange}
-      style={tabStyles}
-      scrollButtons="on"
-      scrollable
-    >
-      {sections.map((v, k) => 
-        <Tab
-          disableRipple
-          label={v}
-          key={k}
-        />
-      )}
-    </Tabs>
+      value={value}
+    />
     <Content>
     <input type="file" name="image-upload" accept="image/*" ref={this.fileInput} style={{display: 'none'}} onChange={this.handleImageSelected} />
     <Grid item xs={10} style={{overflow: 'scroll', marginBottom: 50}}>

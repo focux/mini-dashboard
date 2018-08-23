@@ -4,6 +4,7 @@ import Home from '@material-ui/icons/Home';
 import Book from '@material-ui/icons/Book';
 import Build from '@material-ui/icons/Build';
 import Clear from '@material-ui/icons/Clear';
+import Menu from '@material-ui/icons/ImportContacts';
 import { Container, CustomNavLink, ListItem, List } from './elements';
 import MenuItem from './MenuItem';
 
@@ -17,6 +18,11 @@ const menuLinks = [
     name: 'Reservas',
     path: '/booking',
     icon: <Book />
+  },
+  {
+    name: 'Menu',
+    path: '/menu',
+    icon: <Menu />
   },
   {
     name: 'Configuracion',

@@ -5,15 +5,14 @@ const bodyParser = require('body-parser');
 const { mongoose } = require('./db/mongoose');
 const passportSetup = require('./config/passport-setup');
 const passport = require('passport');
-const authRoutes = require('./routes/auth');
-const bookingRoutes = require('./routes/booking');
-const imageRoutes = require('./routes/image');
+const apiRoutes = require('./routes');
 const PORT = process.env.PORT || 3000;
 const app = express();
 const publicPath = path.join(__dirname, '..', 'public');
 const cors = require('cors');
 const cookieSession = require('cookie-session');
 const enforce = require('express-sslify');
+const { Menu } = require('./models/menu')
 
 if (process.env.NODE_ENV === 'production') {
     console.log('EN PRODUCTION');
@@ -51,11 +50,7 @@ app.use(cors());
 
 app.use(express.static(publicPath));
 
-/* Routes */
-
-app.use('/api/v1/auth', authRoutes);
-app.use('/api/v1/booking', bookingRoutes);
-app.use('/api/v1/image', imageRoutes);
+app.use('/api/v1', apiRoutes); // Api routes
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(publicPath, 'index.html'));
