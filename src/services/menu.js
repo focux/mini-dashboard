@@ -31,7 +31,7 @@ export default class Menu {
     return response;
   }
 
-  static async update(id, update) { /* update is an object with the menu updated object' */
+  static async update(id, update) { /* update param is an object with the menu updated object' */
     let response;
     try {
       response = await axiosClient.patch(`/menu/${id}`, update);

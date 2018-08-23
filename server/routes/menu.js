@@ -12,13 +12,10 @@ router.get('/', async (req, res) => {
 })
 
 router.patch('/:id', async (req, res) => {
-  console.log('EL ID', req.params.id);
-  console.log('EL BODY', req.body)
   const sendError = () => res.status(400).send({ error: 'Hubo un error al procesar su solicitud. Intente nuevamente.'});
   if (req.body && req.params && req.params.id) {
     const { id } = req.params;
     const newObject = {...req.body};
-    console.log('el new objcet', newObject)
     try {
      const menu = await Menu.findByIdAndUpdate(id, {
         $set: newObject

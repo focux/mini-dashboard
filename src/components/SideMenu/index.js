@@ -5,6 +5,7 @@ import Book from '@material-ui/icons/Book';
 import Build from '@material-ui/icons/Build';
 import Clear from '@material-ui/icons/Clear';
 import Menu from '@material-ui/icons/ImportContacts';
+import Receipt from '@material-ui/icons/Receipt';
 import { Container, CustomNavLink, ListItem, List } from './elements';
 import MenuItem from './MenuItem';
 
@@ -25,7 +26,12 @@ const menuLinks = [
     icon: <Menu />
   },
   {
-    name: 'Configuracion',
+    name: 'Textos',
+    path: '/texts',
+    icon: <Receipt />
+  },
+  {
+    name: 'Personalizar',
     path: '/settings',
     icon: <Build />
   },
