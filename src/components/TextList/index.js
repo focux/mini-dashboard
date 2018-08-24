@@ -20,7 +20,7 @@ const TextList = ({
 }) => (
   <Grid container spacing={16} style={gridStyles}>
     {texts.map((v, k) => 
-      <Grid item xs={6} key={k}>
+      <Grid item xs={12} md={6} key={k}>
           <TextItem
           text={v.text}
           identifier={v.identifier}

@@ -22,7 +22,7 @@ const MenuList = ({
 }) => (
   <Grid container spacing={16} style={gridStyles}>
     {menu.map((v, k) => 
-      <Grid item xs={6} key={k}>
+      <Grid item xs={12} md={6} key={k}>
           <MenuItem
           description={v.description}
           title={v.title}
