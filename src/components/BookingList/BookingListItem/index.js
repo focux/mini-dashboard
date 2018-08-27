@@ -14,8 +14,10 @@ const BookingListItem = ({ fullName, telephone, bookingDate, email, id, persons 
         {email} | {telephone}
       </Grid>
       <Grid item xs={12}>
-      <SmallTitle>Cantidad de Personas</SmallTitle>
-      {persons}
+        <SmallTitle>Cantidad de Personas</SmallTitle>
+      </Grid>
+      <Grid item xs={12}>
+        {persons}
       </Grid>
       <Grid item xs={12}>
          <SmallTitle>Fecha de reserva:</SmallTitle>
