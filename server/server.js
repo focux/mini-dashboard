@@ -37,7 +37,7 @@ app.get('*.js', (req, res, next) => {
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
     keys: ['secret'],
-    secure: process.env.NODE_ENV === 'production'
+    secure: false
 }));
 
 app.use(helmet());
