@@ -21,6 +21,12 @@ const BookingSchema = new mongoose.Schema({
       message: '{VALUE} is not a valid e-mail'
     }
   },
+  persons: {
+    type: Number,
+    required: true,
+    trim: true,
+    default: 1
+  },
   bookingDate: {
     type: Number,
     required: true

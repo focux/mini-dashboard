@@ -4,10 +4,10 @@ const { Booking } = require('../models/booking');
 router.post('/', async (req, res) => {
   const error = 'Hubo un problema al hacer la reserva, favor intente nuevamente.';
   if (req.body && req.body.telephone && req.body.email && req.body.bookingDate) {
-    const { fullName, telephone, email, bookingDate } = req.body;
+    const { fullName, telephone, email, bookingDate, persons } = req.body;
     console.log(req.body.bookingDate, 'el body');
     const newBooking = new Booking({
-      fullName, telephone, email, bookingDate
+      fullName, telephone, email, bookingDate, persons
     });
     try {
       const booking = await newBooking.save();

@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import moment from 'moment';
 import { Container, SmallTitle } from './elements';
 
-const BookingListItem = ({ fullName, telephone, bookingDate, email, id }) => (
+const BookingListItem = ({ fullName, telephone, bookingDate, email, id, persons }) => (
   <Container>
     <Grid container item xs={12} direction="column" spacing={8}>
     <Grid item xs={12}><SmallTitle>Información de Contacto</SmallTitle></Grid>
@@ -12,6 +12,9 @@ const BookingListItem = ({ fullName, telephone, bookingDate, email, id }) => (
       </Grid>
       <Grid item xs={12}>
         {email} | {telephone}
+      </Grid>
+      <Grid item xs={12}>
+      <SmallTitle>Personas</SmallTitle> | {persons}
       </Grid>
       <Grid item xs={12}>
          <SmallTitle>Fecha de reserva:</SmallTitle>
